@@ -1,0 +1,190 @@
+@use '../../_variables.scss' as *;
+
+.experience-section {
+  background-color: rgba(0, 0, 0, 0.02);
+  opacity: 1; /* Ensure section is visible */
+}
+
+.experience-timeline {
+  position: relative;
+  padding: var(--spacing-lg) 0;
+  opacity: 1; /* Ensure timeline is visible */
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 24px;
+    width: 2px;
+    background-color: var(--primary-color);
+    opacity: 0.2;
+    
+    @media (min-width: 768px) {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--spacing-lg);
+  opacity: 1; /* Ensure timeline items are visible */
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:nth-child(odd) {
+      justify-content: flex-end;
+      
+      .timeline-content {
+        margin-right: calc(50% + 30px);
+        text-align: left;
+      }
+      
+      .timeline-header {
+        .company, .period {
+          justify-content: flex-start;
+        }
+      }
+      
+      .timeline-details {
+        padding-left: 20px;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+    
+    &:nth-child(even) {
+      justify-content: flex-start;
+      
+      .timeline-content {
+        margin-left: calc(50% + 30px);
+        text-align: left;
+      }
+      
+      .timeline-header {
+        .company, .period {
+          justify-content: flex-start;
+        }
+      }
+      
+      .timeline-details {
+        padding-left: 20px;
+        padding-right: 0;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 5px rgba(0, 113, 227, 0.1);
+  z-index: 2;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 0 15px 5px rgba(0, 113, 227, 0.3);
+  }
+  
+  &:before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+  }
+  
+  @media (min-width: 768px) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-content {
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 70px;
+  
+  @media (min-width: 768px) {
+    width: 45%;
+    max-width: 450px;
+    padding: var(--spacing-md);
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.timeline-header {
+  margin-bottom: var(--spacing-sm);
+  
+  h3 {
+    font-size: var(--font-size-xl);
+    margin-bottom: 8px;
+  }
+  
+  .company, .period {
+    display: flex;
+    align-items: center;
+    font-size: var(--font-size-base);
+  }
+  
+  .company {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+  }
+  
+  .period {
+    color: var(--secondary-color);
+  }
+}
+
+.timeline-details {
+  padding-left: 20px;
+  
+  li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    position: relative;
+    
+    &:before {
+      content: '•';
+      color: var(--primary-color);
+      font-weight: bold;
+      position: absolute;
+      left: -20px;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Enhanced timeline animations are now implemented directly
+// in the component classes above and through GSAP in the TypeScript

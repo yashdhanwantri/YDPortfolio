@@ -1,0 +1,65 @@
+<section class="hero-section" #heroContainer>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title" #heroTitle>Full Stack Engineer</h1>
+      <p class="hero-subtitle" #heroSubtitle>Architecting End-to-End Solutions | 8 Yrs in Product & Platform Development</p>
+      
+      <div class="hero-actions">
+        <button class="btn btn-primary hero-cta" #ctaButton (click)="scrollToContact()">
+          Get in touch
+        </button>
+        <a routerLink="/projects" class="btn btn-secondary">
+          View projects
+        </a>
+      </div>
+    </div>
+    
+    <div class="hero-graphics">
+      <!-- Floating graphic elements with parallax effect -->
+      <div class="graphic-circle" data-parallax="0.1"></div>
+      <div class="graphic-square" data-parallax="0.15"></div>
+      <div class="graphic-dots" data-parallax="0.2"></div>
+      <div class="graphic-line" data-parallax="0.05"></div>
+      
+      <!-- Code snippet -->
+      <div class="code-window" data-parallax="0.08">
+        <div class="code-header">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="code-content">
+          <pre>
+class <span class="highlight">Developer</span> {{ '{' }}
+  constructor() {{ '{' }}
+    this.name = <span class="string">"Yash Dhanwantri"</span>;
+    this.role = <span class="string">"Technical Consultant"</span>;
+    this.company = <span class="string">"Microsoft"</span>;
+    this.experience = <span class="number">8</span>;
+    this.skills = [
+      <span class="string">"Backend Development"</span>,
+      <span class="string">"Distributed Systems"</span>,
+      <span class="string">"Microservices"</span>,
+      <span class="string">"Cloud Architecture"</span>
+    ];
+  {{ '}' }}
+
+  <span class="method">solveProblems</span>(<span class="param">complexity</span>) {{ '{' }}
+    return <span class="string">"Elegant Solution"</span>;
+  {{ '}' }}
+{{ '}' }}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="wheel"></div>
+    </div>
+    <div class="arrow">
+      <span></span>
+    </div>
+  </div>
+</section>

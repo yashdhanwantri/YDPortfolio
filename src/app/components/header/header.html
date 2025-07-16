@@ -1,0 +1,35 @@
+<header class="header" [class.scrolled]="isScrolled">
+  <div class="container">
+    <div class="header-content">
+      <a routerLink="/" class="logo" aria-label="Yash Dhanwantri's Portfolio">
+        <span>Yash Dhanwantri</span><span class="accent">.</span>
+      </a>
+      
+      <nav class="nav-desktop" aria-label="Main navigation">
+        <ul>
+          <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+          <li><a routerLink="/experience" routerLinkActive="active">Experience</a></li>
+          <li><a routerLink="/skills" routerLinkActive="active">Skills</a></li>
+          <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+          <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+        </ul>
+      </nav>
+      
+      <button class="menu-toggle" (click)="toggleMobileMenu()" aria-label="Toggle menu">
+        <span [class.open]="isMobileMenuOpen"></span>
+      </button>
+    </div>
+  </div>
+  
+  <nav class="nav-mobile" [class.open]="isMobileMenuOpen" aria-label="Mobile navigation">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="toggleMobileMenu()">Home</a></li>
+      <li><a routerLink="/about" routerLinkActive="active" (click)="toggleMobileMenu()">About</a></li>
+      <li><a routerLink="/experience" routerLinkActive="active" (click)="toggleMobileMenu()">Experience</a></li>
+      <li><a routerLink="/skills" routerLinkActive="active" (click)="toggleMobileMenu()">Skills</a></li>
+      <li><a routerLink="/projects" routerLinkActive="active" (click)="toggleMobileMenu()">Projects</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="toggleMobileMenu()">Contact</a></li>
+    </ul>
+  </nav>
+</header>

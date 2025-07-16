@@ -1,0 +1,33 @@
+<section class="skills-section section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Skills & Expertise</h2>
+      <div class="section-divider"></div>
+    </div>
+    
+    <div class="skills-content">
+      <!-- Dynamic skill categories -->
+      <div *ngFor="let category of skillCategories" class="skills-category" #skillCategory>
+        <h3>{{ category.title }}</h3>
+        
+        <!-- Bar-style skills -->
+        <div *ngIf="category.type === 'bar'" class="skills-group">
+          <div *ngFor="let skill of category.skills" class="skill-item" #skillBar>
+            <div class="skill-name">{{ skill.name }}</div>
+            <div class="skill-bar">
+              <div class="skill-progress" [style.width.%]="skill.proficiency"></div>
+              <div class="skill-percentage">{{ skill.proficiency }}%</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Tag-style skills -->
+        <div *ngIf="category.type === 'tag'" class="skills-group skill-tags">
+          <span *ngFor="let skill of category.skills" class="skill-tag" #skillTag>
+            {{ skill }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
