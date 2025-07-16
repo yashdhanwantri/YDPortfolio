@@ -19,23 +19,8 @@ jobs:
         with:
           submodules: true
           lfs: false
-
-      # 👉 Setup Node.js version (match Angular's requirement)
-      - name: Use Node.js 22.17.0
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.17.0'
-          cache: 'npm'
-
-      # 👉 Install dependencies and build manually
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Angular app
-        run: npm run build
-
-      # 👉 Deploy built app (from dist/portfolio)
-      - name: Deploy to Azure Static Web Apps
+      - name: Build And Deploy
+        id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_FLOWER_06683E210 }}
@@ -54,6 +39,7 @@ jobs:
     name: Close Pull Request Job
     steps:
       - name: Close Pull Request
+        id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WHITE_FLOWER_06683E210 }}
