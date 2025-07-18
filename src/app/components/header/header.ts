@@ -2,7 +2,6 @@ import { Component, OnInit, HostListener, ElementRef, inject } from '@angular/co
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router, NavigationEnd } from '@angular/router';
 import { Animation } from '../../services/animation';
-import gsap from 'gsap';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -60,6 +59,38 @@ export class Header implements OnInit {
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    
+    if (this.isMobileMenuOpen) {
+      // Prevent body scrolling and hide main content
+      document.body.style.overflow = 'hidden';
+      
+      // Hide main content and footer to prevent bleeding
+      const mainElement = document.querySelector('main') as HTMLElement;
+      const footerElement = document.querySelector('app-footer') as HTMLElement;
+      
+      if (mainElement) {
+        mainElement.style.visibility = 'hidden';
+      }
+      
+      if (footerElement) {
+        footerElement.style.visibility = 'hidden';
+      }
+    } else {
+      // Restore body scrolling and show main content
+      document.body.style.overflow = '';
+      
+      // Show main content and footer
+      const mainElement = document.querySelector('main') as HTMLElement;
+      const footerElement = document.querySelector('app-footer') as HTMLElement;
+      
+      if (mainElement) {
+        mainElement.style.visibility = '';
+      }
+      
+      if (footerElement) {
+        footerElement.style.visibility = '';
+      }
+    }
   }
 
   navigate(path: string) {
@@ -68,6 +99,19 @@ export class Header implements OnInit {
     // Close mobile menu if open
     if (this.isMobileMenuOpen) {
       this.isMobileMenuOpen = false;
+      document.body.style.overflow = '';
+      
+      // Restore main content and footer visibility
+      const mainElement = document.querySelector('main') as HTMLElement;
+      const footerElement = document.querySelector('app-footer') as HTMLElement;
+      
+      if (mainElement) {
+        mainElement.style.visibility = '';
+      }
+      
+      if (footerElement) {
+        footerElement.style.visibility = '';
+      }
     }
   }
 }

@@ -294,49 +294,59 @@
 
 // Media queries
 @media (max-width: 992px) {
-  .hero-section .container {
-    flex-direction: column;
+  .hero-section {
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-xl);
+    }
   }
   
   .hero-content {
     max-width: 100%;
-    text-align: center;
-  }
-  
-  .hero-actions {
-    justify-content: center;
-  }
-  
-  .hero-graphics {
-    width: 100%;
-  }
-}
-
-@media (max-width: 992px) {
-  .hero-section .container {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .hero-content {
     order: 2;
     margin-top: var(--spacing-lg);
+    z-index: 10;
+    position: relative;
   }
   
   .hero-graphics {
     width: 100%;
     order: 1;
     height: 400px;
+    margin-bottom: var(--spacing-md);
   }
   
   .hero-actions {
     justify-content: center;
+    margin-top: var(--spacing-md);
   }
 }
 
 @media (max-width: 768px) {
   .hero-section {
     padding: var(--spacing-lg) 0;
+    
+    .container {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--spacing-lg);
+    }
+  }
+
+  .hero-content {
+    max-width: 100%;
+    order: 2;
+    z-index: 10;
+    position: relative;
+    margin-top: var(--spacing-md);
+  }
+
+  .hero-graphics {
+    width: 100%;
+    height: 300px;
+    order: 1;
+    margin-bottom: var(--spacing-md);
   }
 
   .hero-title {
@@ -347,41 +357,88 @@
     font-size: var(--font-size-base);
   }
   
+  .hero-actions {
+    justify-content: center;
+    margin-top: var(--spacing-md);
+    gap: var(--spacing-sm);
+  }
+  
   .code-window {
     width: 90%;
     max-width: 350px;
+    margin-bottom: var(--spacing-lg);
+  }
+
+  // Hide scroll indicator on mobile
+  .scroll-indicator {
+    display: none;
   }
 }
 
 @media (max-width: 576px) {
   .hero-section {
     padding: var(--spacing-md) 0;
+    min-height: calc(100vh - 80px);
+    
+    .container {
+      padding: 0 var(--spacing-sm);
+      gap: var(--spacing-md);
+    }
+  }
+  
+  .hero-content {
+    order: 2;
+    z-index: 10;
+    position: relative;
+  }
+
+  .hero-graphics {
+    order: 1;
+    height: 250px;
+    margin-bottom: var(--spacing-sm);
   }
   
   .hero-title {
     font-size: var(--font-size-2xl);
     line-height: 1.3;
+    margin-bottom: var(--spacing-sm);
   }
   
   .hero-subtitle {
     line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    font-size: var(--font-size-sm);
   }
   
   .hero-actions {
     flex-direction: column;
     gap: var(--spacing-sm);
     width: 100%;
+    align-items: center;
+    margin-top: var(--spacing-md);
   }
   
   .hero-cta {
     width: 100%;
+    max-width: 280px;
+  }
+  
+  .btn.btn-secondary {
+    width: 100%;
+    max-width: 280px;
   }
   
   .code-window {
     max-width: 300px;
+    margin-bottom: var(--spacing-md);
   }
   
   .code-content pre {
     font-size: 12px;
+  }
+
+  // Ensure scroll indicator is hidden on small mobile too
+  .scroll-indicator {
+    display: none !important;
   }
 }

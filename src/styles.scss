@@ -197,6 +197,10 @@ p {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
   h1 {
     font-size: var(--font-size-3xl);
   }
@@ -211,11 +215,19 @@ p {
 }
 
 @media (max-width: 576px) {
+  .container {
+    padding: 0 var(--spacing-xs);
+  }
+
   h1 {
     font-size: var(--font-size-2xl);
   }
   
   h2 {
     font-size: var(--font-size-xl);
+  }
+
+  .section {
+    padding: var(--spacing-sm) 0;
   }
 }
